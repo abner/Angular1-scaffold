@@ -1,6 +1,6 @@
 
 import {APP_PREFIX} from './app.component';
 
-export default function moduleName(name) {
+export function moduleName(name) {
     return APP_PREFIX + '.' + name;
 }

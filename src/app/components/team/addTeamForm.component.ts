@@ -37,7 +37,7 @@ export class AddTeamFormComponent {
         @Inject('$mdBottomSheet') private $mdBottomSheet: ng.material.IBottomSheetService,
         @Inject('$state') private $state: ng.ui.IStateService
     ) {
-        this.team = <Team>{};
+        this.team = <Team> {};
     }
 
     submit() {

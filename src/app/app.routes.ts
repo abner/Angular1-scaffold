@@ -4,7 +4,6 @@ export interface IStatesConfig {
     [key: string]: ng.ui.IState;
 }
 
-
 export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig>{
     'account-show': {
         name: 'account-show',
@@ -25,11 +24,32 @@ export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig>{
     },
     'main': {
         name: 'main',
-        url: '/',
+        url: '',
+        abstract: true,
         template: '<main-component></main-component>'
         // resolve: {
         //  todoData: TodoService => TodoService.getTodos();
         // }
+    },
+    'main.index': <any> {
+        name: 'main.index',
+        url: '/',
+        template: '<my-project-box></my-project-box>'
+    },
+    'main.teams': {
+        name: 'main.teams',
+        url: '/main/teams',
+        template: '<my-team-box></my-team-box>'
+    },
+    'main.tasks': {
+        name: 'main.tasks',
+        url: '/main/tasks',
+        template: '<my-task-box></my-task-box>'
+    },
+    'main.projects': {
+        name: 'main.projects',
+        url: '/main/projects',
+        template: '<my-project-box></my-project-box>'
     },
     'signup': {
         name: 'signup',
@@ -39,19 +59,14 @@ export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig>{
         //  todoData: TodoService => TodoService.getTodos();
         // }
     },
-    'team': <ng.ui.IState>{
+    'team': <ng.ui.IState> {
         name: 'team',
         url: '/team',
         abstract: true,
-        template: `
-           <div ui-view=""></div>
-           `,
-        // resolve: {
-        //  todoData: TodoService => TodoService.getTodos();
-        // }
+        template: `<div ui-view=""></div>`
     },
     'team.list': {
-        url: '/',
+        url: '',
         template: ' <team-list></team-list>'
     },
     'team.edit': {
@@ -69,7 +84,7 @@ export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig>{
 
 AppRoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-export default function AppRoutesConfig(
+export function AppRoutesConfig(
     $stateProvider: ng.ui.IStateProvider,
     $urlRouterProvider: ng.ui.IUrlRouterProvider
 ) {
@@ -77,4 +92,6 @@ export default function AppRoutesConfig(
     for (key in ROUTES_DEFINITIONS) {
         $stateProvider.state(key, ROUTES_DEFINITIONS[key]);
     }
+
+    $urlRouterProvider.otherwise('/');
 };

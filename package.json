@@ -14,6 +14,7 @@
     "typings": "typings",
     "postinstall": "rimraf typings/ && typings install",
     "start": "NODE_ENV=prototyping npm run server",
+    "start-dev": "NODE_ENV=development npm run server",
     "build": "NODE_ENV=production webpack --config webpack-build.config.js",
     "build:dev": "webpack --progress --profile --colors --display-error-details --display-cached",
     "test": "karma start",

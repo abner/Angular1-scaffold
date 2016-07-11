@@ -7,8 +7,6 @@ import { APP_PREFIX } from '../../../app.component';
 import Dexie from 'dexie';
 
 
-// let lokiIndexedAdapterConstructor: LokiIndexedAdapter = require('lokijs/src/loki-indexed-adapter');
-
 import { BackendService } from './backendService.interface';
 
 import { Observable } from 'rxjs/Observable';
@@ -51,7 +49,7 @@ export abstract class DexieBackendService<T, K> implements BackendService<T> {
 
 
     findOne(id: number): Observable<T> {
-        let promiseGet: Promise<T> = this.getTable().get(<any>id);
+        let promiseGet: Promise<T> = this.getTable().get(<any> id);
         let observable: Observable<T> = Observable.create((observer: Observer<T>) => {
             promiseGet.then((res: T) => {
                 observer.next(res);
@@ -65,7 +63,6 @@ export abstract class DexieBackendService<T, K> implements BackendService<T> {
 
 
     insert(obj: T): Observable<T> {
-        //obj['id'] = this.buildSlug(obj);
         let promisePut: Dexie.Promise<K> = this.getTable().put(obj);
         let observable: Observable<T> = Observable.create((observer: Observer<T>) => {
             promisePut.then((res: K) => {
@@ -80,7 +77,6 @@ export abstract class DexieBackendService<T, K> implements BackendService<T> {
     }
 
     update(obj: T): Observable<T> {
-        //obj['id'] = this.buildSlug(obj);
         let promisePut: Dexie.Promise<K> = this.getTable().put(obj);
         let observable: Observable<T> = Observable.create((observer: Observer<T>) => {
             promisePut.then((res: K) => {
@@ -95,19 +91,18 @@ export abstract class DexieBackendService<T, K> implements BackendService<T> {
     }
 
     delete(obj: T): Observable<boolean> {
-        console.log('Object delete: ', obj);
-        let promiseDelete: Dexie.Promise<void> = this.getTable().delete(<K>obj['id']);
+        let promiseDelete: Dexie.Promise<void> = this.getTable().delete(<K> obj['id']);
         let observer: Observer<boolean>;
         let observable: Observable<boolean> = Observable.create((observer: Observer<boolean>) => {
             observer = observer;
         });
 
         promiseDelete.then((res) => {
-            this._onChange.emit(<any>{});
+            this._onChange.emit(<any> {});
             observer.next(true);
             observer.complete();
 
-        }).catch((e) => console.error('Delete error!', e));
+        }).catch((e) => observer.error('Delete error: ' +  e));
 
         return observable;
     }
@@ -118,7 +113,6 @@ export abstract class DexieBackendService<T, K> implements BackendService<T> {
             promiseGetAll.then((res: T[]) => {
                 observer.next(res);
                 observer.complete();
-
             })
         });
 
@@ -126,7 +120,7 @@ export abstract class DexieBackendService<T, K> implements BackendService<T> {
     }
 
     query(params: any): Observable<T[]> {
-        return Observable.of(<T[]>[]);
+        return Observable.of(<T[]> []);
     }
 
     count(): Observable<number> {

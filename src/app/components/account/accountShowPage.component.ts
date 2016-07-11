@@ -26,7 +26,7 @@ export class AccountShowPageComponent implements OnInit {
 
     update() {
         this.sessionService.currentUser = this.account;
-        this.$state.go('main');
+        this.$state.go('main.index');
         return false;
     }
 }

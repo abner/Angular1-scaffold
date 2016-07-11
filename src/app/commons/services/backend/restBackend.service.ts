@@ -12,7 +12,9 @@ export abstract class RestBackendService<T> implements BackendService<T> {
 
     abstract getBaseUrl(): string;
 
-    abstract onChanges(): Observable<Change<T>>;
+    onChanges(): Observable<Change<T>> {
+        return Observable.of([]);
+    }
 
     buildUrl(path: string) {
         return this.getBaseUrl() + path;

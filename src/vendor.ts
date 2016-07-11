@@ -1,6 +1,7 @@
 import 'angular';
 import 'angular-ui-router';
 import 'angular-local-storage';
+import 'angular-animate';
 import 'angular-material';
 import 'ng-metadata/platform-browser-dynamic';
 import 'ng-metadata/core';

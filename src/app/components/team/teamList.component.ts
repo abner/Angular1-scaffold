@@ -6,19 +6,9 @@ import { Team } from '../../commons/models';
 import { TeamBackendRestService } from './rest.service';
 import { TeamBackendMockService } from './mock.service';
 
-export const TEAM_BACKEND_SERVICE = new OpaqueToken('TEAM_BACKEND_SERVICE');
+import {TEAM_BACKEND_SERVICE} from './backend.service';
+import { TEAM_BACKEND_SERVICE_PROVIDE } from './backend.service.provide';
 
-let provideBackendService: Object = {
-    provide: TEAM_BACKEND_SERVICE,
-    useClass: TeamBackendRestService
-};
-
-if (ENV === 'prototyping') {
-    provideBackendService = {
-        provide: TEAM_BACKEND_SERVICE,
-        useClass: TeamBackendMockService
-    };
-}
 
 @Component({
     selector: 'team-list',
@@ -26,7 +16,7 @@ if (ENV === 'prototyping') {
     styles: require('./team.scss')
     ,
     providers: [
-        { provide: TEAM_BACKEND_SERVICE, useClass: TeamBackendMockService }
+        TEAM_BACKEND_SERVICE_PROVIDE
     ],
     changeDetection: ChangeDetectionStrategy.Default
 })
@@ -58,12 +48,10 @@ export class TeamListComponent implements OnInit {
 
 
     ngOnInit() {
-        console.log('ON INIT BLA', this.backendService);
         this.list = this.backendService.getAll(this.findAllParams);
         this.total = this.backendService.count(this.backendService.count());
 
         this.backendService.onChanges().subscribe(e => {
-            console.log('CHANGES X', e);
             this.list = this.backendService.getAll(this.findAllParams);
             this.total = this.backendService.count(this.backendService.count());
             this.$scope.$applyAsync();
@@ -83,17 +71,13 @@ export class TeamListComponent implements OnInit {
         this.currentTeam = team;
         this.$mdBottomSheet.show({
             template: `
-            <team-edit-form 
-                 [team]="$ctrl.currentTeam" 
+            <team-edit-form
+                 [team]="$ctrl.currentTeam"
                  (onSave)="console.log('update clicked!');$ctrl.teamSaved($event)">
             </team-edit-form>
             `,
             scope: this.$scope.$new()
         });
-    }
-
-    teamSaved($event) {
-        console.log('Team Saved', $event);
     }
 
     delete(team: Team, $event) {
@@ -113,7 +97,6 @@ export class TeamListComponent implements OnInit {
         this.currentPage += 1;
         this.findAllParams.pagination.offset += this.QTD_PER_PAGE;
         this.findAllParams.pagination.limit += this.QTD_PER_PAGE;
-        console.log('Next clicked!', this.findAllParams);
         this.refresh();
     }
 
@@ -121,7 +104,6 @@ export class TeamListComponent implements OnInit {
         this.currentPage -= 1;
         this.findAllParams.pagination.offset -= this.QTD_PER_PAGE;
         this.findAllParams.pagination.limit -= this.QTD_PER_PAGE;
-        console.log('Previous clicked!', this.findAllParams);
         this.refresh();
     }
 

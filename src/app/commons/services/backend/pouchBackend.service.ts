@@ -109,12 +109,10 @@ export abstract class PouchDBBackendService<T extends pDB.IBaseDoc> implements B
         let observable: Observable<boolean> = Observable.create((observer: Observer<boolean>) => {
             deletePromise
                 .then((res: pDB.Response.IOk) => {
-                    console.log('removed ok', res);
                     observer.next(true);
                     observer.complete();
                 })
                 .catch((error) => {
-                    console.log('removed error', error);
                     observer.error(error);
                     observer.complete();
                 });
@@ -144,7 +142,7 @@ export abstract class PouchDBBackendService<T extends pDB.IBaseDoc> implements B
     }
 
     query(params: any): Observable<T[]> {
-        return Observable.of(<T[]>[]);
+        return Observable.of(<T[]> []);
     }
 
     count(): Observable<number> {

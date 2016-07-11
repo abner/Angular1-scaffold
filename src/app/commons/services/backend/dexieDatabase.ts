@@ -17,9 +17,7 @@ export class DexieDatabase extends Dexie  {
         // (Here's where the implicit table props are dynamically created)
         //
         this.version(1).stores({
-            teams: '++id, &name',
-
+            teams: '++id, &name'
         });
     }
-
 }

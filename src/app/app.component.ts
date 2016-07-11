@@ -10,6 +10,8 @@ import { ACCOUNT_COMPONENTS } from './components/account';
 import { TEAM_COMPONENTS } from './components/team';
 import { COMMONS_DIRECTIVES } from './commons/directives';
 
+import { HTTP_INTERCEPTORS_PROVIDERS } from './app.http.interceptors';
+
 export const APP_TITLE = 'My App - Abner ®';
 export const APP_PREFIX = 'myapp';
 export const APP_NAME = 'MY APP';
@@ -25,7 +27,8 @@ export const APP_NAME_TOKEN = new OpaqueToken('APP_NAME');
   providers: [
     { provide: APP_TITLE_TOKEN, useValue: APP_TITLE },
     { provide: APP_PREFIX_TOKEN, useValue: APP_PREFIX },
-    { provide: APP_NAME_TOKEN, useValue: APP_NAME }
+    { provide: APP_NAME_TOKEN, useValue: APP_NAME },
+    ...HTTP_INTERCEPTORS_PROVIDERS
   ],
   directives: [
     MainComponent,

@@ -1,6 +1,6 @@
 import * as ngMaterial from 'angular-material';
 import * as uiRouter from 'angular-ui-router';
-
+import * as ngAnimate from 'angular-animate';
 // let uiMask = require('angular-ui-mask');
 
 import { bootstrap } from 'ng-metadata/platform-browser-dynamic';
@@ -11,7 +11,7 @@ import { providers as appProviders} from './app/commons/providers';
 
 // import { APP_ROOT_MODULE } from './app/module';
 
-import AppRoutesConfig from './app/app.routes';
+import { AppRoutesConfig } from './app/app.routes';
 
 if (ENV === 'production') {
   enableProdMode();
@@ -19,6 +19,7 @@ if (ENV === 'production') {
 
 const dependencies = [
   ngMaterial,
+  ngAnimate,
   uiRouter,
   'LocalStorageModule',
   // 'angular-input-masks',
@@ -27,6 +28,7 @@ const dependencies = [
   AppRoutesConfig,
   AsyncPipe,
   { provide: 'APP_PREFIX', useValue: 'myapp'}
+
   // APP_ROOT_MODULE
 ];
 

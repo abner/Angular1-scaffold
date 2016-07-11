@@ -1,14 +1,15 @@
 <md-content class="md-padding">
-    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-        <md-nav-item md-nav-click="goto('page1')" name="page1">Meus Projetos</md-nav-item>
-        <md-nav-item md-nav-click="goto('page2')" name="page2">Minhas Equipes</md-nav-item>
-        <md-nav-item md-nav-click="goto('page3')" name="page3">Pendências</md-nav-item>
+    <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-click="$ctrl.goto('main.projects')" name="projects">Meus Projetos</md-nav-item>
+        <md-nav-item md-nav-click="$ctrl.goto('main.teams')" name="teams">Minhas Equipes</md-nav-item>
+        <md-nav-item md-nav-click="$ctrl.goto('main.tasks')" name="tasks">Pendências</md-nav-item>
         <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
       <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
       <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
       -->
     </md-nav-bar>
-    <md-content layout-padding layout="row">
-        <span>{{currentNavItem}}</span>
+    <md-content>
+        <!--<span>{{$ctrl.currentNavItem}}</span>-->
+        <div class='main-content' ui-view layout-padding layout-fill layout="row"></div>
     </md-content>
 </md-content>

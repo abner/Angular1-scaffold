@@ -1,19 +1,19 @@
-const path = require( 'path' );
-const webpack = require( 'webpack' );
+const path = require('path');
+const webpack = require('webpack');
 
 /**
  * Webpack Plugins
  */
 const DefinePlugin = require('webpack/lib/DefinePlugin');
-const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
-const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /**
  * Webpack Constants
  */
-const ENV = ( process.env.NODE_ENV || 'development' );
-const ROOT = path.resolve( __dirname, 'src' );
-const DESTINATION = path.resolve( __dirname, 'dist' );
+const ENV = (process.env.NODE_ENV || 'development');
+const ROOT = path.resolve(__dirname, 'src');
+const DESTINATION = path.resolve(__dirname, 'dist');
 
 /**
  * Static metadata for index.html
@@ -23,8 +23,8 @@ const DESTINATION = path.resolve( __dirname, 'dist' );
 const METADATA = {
   baseUrl: '/',
   lang: 'en',
-  title: 'Tombaugh Regio',
-  ENV: JSON.stringify( ENV ),
+  title: 'Angular JS - ng-metadata - AngularMaterial',
+  ENV: JSON.stringify(ENV),
   host: '0.0.0.0',
   // port is determined from npm config
   // which is set in package.json
@@ -51,9 +51,9 @@ const webpackConfigEntryPoints = {
    *
    * See: http://webpack.github.io/docs/configuration.html#entry
    */
-  polyfills: path.resolve( ROOT, 'polyfills.ts' ),
-  vendor: path.resolve( ROOT, 'vendor.ts' ),
-  main: path.resolve( ROOT, 'main.ts' )
+  polyfills: path.resolve(ROOT, 'polyfills.ts'),
+  vendor: path.resolve(ROOT, 'vendor.ts'),
+  main: path.resolve(ROOT, 'main.ts')
 };
 
 /**
@@ -62,9 +62,9 @@ const webpackConfigEntryPoints = {
  * See: http://webpack.github.io/docs/configuration.html#devtool
  * See: https://github.com/webpack/docs/wiki/build-performance#sourcemaps
  */
-const webpackDevtool = 'source-map';
+// const webpackDevtool = 'source-map';
 // const webpackDevtool =  'cheap-module-eval-source-map';
-
+const webpackDevtool =  'cheap-module-source-map';
 const webpackPreLoaders = [
 
   /*
@@ -76,7 +76,7 @@ const webpackPreLoaders = [
   {
     test: /\.ts$/,
     loader: 'tslint-loader',
-    exclude: [ /node_modules/ ]
+    exclude: [/node_modules/]
   },
 
   /**
@@ -102,14 +102,14 @@ const webpackConfigLoaders = [
   // Scripts
   {
     test: /\.ts$/,
-    exclude: [ /node_modules/ ],
+    exclude: [/node_modules/],
     loader: 'ts-loader'
   },
 
   // Styles
   {
     test: /\.scss$/,
-    loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
+    loaders: ['style-loader', 'css-loader', 'sass-loader']
   },
 
   /**
@@ -120,7 +120,7 @@ const webpackConfigLoaders = [
    */
   {
     test: /\.css$/,
-    loaders: [ 'style-loader', 'css-loader' ]
+    loaders: ['style-loader', 'css-loader']
   },
 
   /**
@@ -132,7 +132,7 @@ const webpackConfigLoaders = [
   {
     test: /\.html$/,
     loader: 'raw-loader',
-    exclude: [ path.resolve( ROOT, 'index.html' ) ]
+    exclude: [path.resolve(ROOT, 'index.html')]
   },
 
   /*
@@ -143,7 +143,9 @@ const webpackConfigLoaders = [
   {
     test: /\.json$/,
     loader: 'json-loader'
-  }
+  },
+  { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+  { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
 
 ];
 
@@ -159,13 +161,13 @@ const webpackConfigPlugins = [
    * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
    */
   // NOTE: when adding more properties, make sure you include them in globals.d.ts
-  new DefinePlugin( {
+  new DefinePlugin({
     ENV: METADATA.ENV,
     'process.env': {
       ENV: METADATA.ENV,
       NODE_ENV: METADATA.ENV
     }
-  } ),
+  }),
 
   /**
    * Plugin: OccurenceOrderPlugin
@@ -175,7 +177,7 @@ const webpackConfigPlugins = [
    * See: https://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin
    * See: https://github.com/webpack/docs/wiki/optimization#minimize
    */
-  new webpack.optimize.OccurenceOrderPlugin( true ),
+  new webpack.optimize.OccurenceOrderPlugin(true),
 
   /**
    * Plugin: CommonsChunkPlugin
@@ -186,7 +188,7 @@ const webpackConfigPlugins = [
    * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
    */
   new webpack.optimize.CommonsChunkPlugin({
-    name: [ 'vendor', 'polyfills' ]
+    name: ['vendor', 'polyfills']
   }),
 
   /**
@@ -197,12 +199,12 @@ const webpackConfigPlugins = [
    *
    * See: https://www.npmjs.com/package/copy-webpack-plugin
    */
-  new CopyWebpackPlugin( [
+  new CopyWebpackPlugin([
     {
       from: 'src/assets',
       to: './'
     }
-  ] ),
+  ]),
 
   /**
    * Plugin: HtmlWebpackPlugin
@@ -212,10 +214,10 @@ const webpackConfigPlugins = [
    *
    * See: https://github.com/ampedandwired/html-webpack-plugin
    */
-  new HtmlWebpackPlugin( {
-    template: path.resolve( ROOT, 'index.html' ),
-    chunksSortMode: () => [ 'polyfills', 'vendor', 'main' ]
-  } )
+  new HtmlWebpackPlugin({
+    template: path.resolve(ROOT, 'index.html'),
+    chunksSortMode: 'dependency' // () => ['polyfills', 'vendor', 'main']
+  })
 
 ];
 
@@ -288,13 +290,13 @@ module.exports = {
      *
      * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
      */
-    extensions: [ '', '.ts', '.js' ],
+    extensions: ['', '.ts', '.js'],
 
     // Make sure root is src
     root: ROOT,
 
     // remove other default values
-    modulesDirectories: [ 'node_modules' ]
+    modulesDirectories: ['node_modules']
   },
   watch: true,
   module: {

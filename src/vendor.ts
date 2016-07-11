@@ -1,4 +1,12 @@
 import 'angular';
+import 'angular-ui-router';
+import 'angular-local-storage';
+import 'angular-material';
 import 'ng-metadata/platform-browser-dynamic';
 import 'ng-metadata/core';
 import 'ng-metadata/common';
+import 'pouchdb';
+// import 'lokijs';
+// import 'lokijs/src/loki-indexed-adapter.js';
+// import 'angular-input-masks';
+// import 'angular-ui-mask';

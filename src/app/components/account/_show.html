@@ -1,0 +1,45 @@
+<md-content layout-xs="column" layout="row" layout-padding layout-align='center center'>
+
+    <md-whiteframe class="md-whiteframe-1dp" flex-xs flex-gt-xs="50" layout-padding>
+
+        <div layout-align="center center" layout="row">
+            <h3 class="md-display-3">Your Account</h3>
+            {{$ctrl.user | json}}
+        </div>
+
+        <form name="$ctrl.formLogin" ng-submit="$ctrl.update()">
+            <md-input-container class="md-icon-float md-block">
+                <!-- Use floating label instead of placeholder -->
+                <md-icon class="name">person</md-icon>
+                <input class='big' md-autofocus="true" autofocus ng-model="$ctrl.currentAccount.username" type="text" placeholder="Username" required>
+            </md-input-container>
+
+            <md-input-container class="md-icon-float md-block">
+                <!-- Use floating label instead of placeholder -->
+                <md-icon class="name">email</md-icon>
+                <input class='big' ng-model="$ctrl.currentAccount.emailusername" type="text" placeholder="Email" required>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-icon>lock</md-icon>
+                <input class='big' ng-model="$ctrl.currentAccount.password" type="password" placeholder="Password" required>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-icon>lock</md-icon>
+                <input class='big' ng-model="$ctrl.currentAccount.passwordConfirmation" type="password" placeholder="Password Confirmation" required>
+            </md-input-container>
+
+            <md-content layout='column' layout-align='center center'>
+                <md-button type="submit" class="md-primary md-raised" ng-disabled="$ctrl.formLogin.$invalid">Update</md-button>
+            </md-content>
+            
+             <div layout-align="center center" layout="row" layout-padding>
+                    <p class='center' layout-align="center center" layout="row">
+                        Return to &nbsp;<span><a  ui-sref="main">main</a>!</span>
+                    </p>
+                </div>
+        </form>
+    </md-whiteframe>
+
+</md-content>

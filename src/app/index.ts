@@ -1,1 +1,1 @@
-export { AppComponent } from './app.component.ts';
+export { AppComponent } from './app.component';

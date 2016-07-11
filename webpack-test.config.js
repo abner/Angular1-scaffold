@@ -19,7 +19,7 @@ const webpackPostLoaders = [
    * See: https://github.com/deepsweet/istanbul-instrumenter-loader
    */
   {
-    test: /\.(js|ts)$/,
+    test: /\.(ts)$/,
     loader: 'istanbul-instrumenter-loader',
     include: webpackConfig.resolve.root,
     exclude: [
@@ -47,6 +47,13 @@ Object.assign( webpackConfig, {
   devtool: webpackDevtool,
   watch: false,
   plugins: [],
+  ts: {
+      compilerOptions: {
+          sourceMap: false,
+          sourceRoot: '',
+          inlineSourceMap: true
+      }
+  },
   node: Object.assign( webpackConfig.node, webpackNode )
 } );
 Object.assign( webpackConfig.module, {

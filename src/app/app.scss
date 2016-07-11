@@ -1,4 +1,18 @@
-body {
-  background-color: black;
-  color: navajowhite;
+
+@import "~angular-material/angular-material.scss";
+
+@import "~material-design-icons/iconfont/material-icons.css";
+
+.searchButton {
+    display: inline-block;
+    cursor: pointer;
+}
+
+md-content {
+    color: #3D4D5D;
+}
+
+
+.main-container {
+    padding-top: 100px;
 }

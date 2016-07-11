@@ -1,0 +1,36 @@
+<md-content id='teamsList' layout-xs="column" layout="row" layout-padding layout-align='center center'>
+
+    <md-whiteframe class="md-whiteframe-1dp" flex-xs flex-gt-xs="50" layout-padding>
+
+        <div layout-align="center center" layout="row">
+            <h3 class="md-display-3">Teams</h3>
+        </div>
+        <md-list>
+            <!--<md-subheader class="md-no-sticky">Teams</md-subheader>-->
+            <md-list-item ng-repeat="team in $ctrl.list | async:this" ng-click="$ctrl.editTeam(team, $event)" class="noright">
+                <p>{{ team.name }}</p>
+                <!--<md-checkbox class="md-secondary" ng-model="team.selected"></md-checkbox>-->
+                <md-icon ng-click="$ctrl.delete(team, $event)" aria-label="Delete" class="md-secondary md-hue-3">delete</md-icon>
+            </md-list-item>
+        </md-list>
+        <div layout="row">
+            <a ng-click="$ctrl.addNewTeam()" class='md-button md-raised md-primary'>Add new Team</a>
+
+        </div>
+        <p>Page: {{$ctrl.currentPage}}</p>
+
+
+        <p>Total: {{$ctrl.total | async:this}}</p>
+        <md-button ng-click='$ctrl.previous();' class='md-button md-accent' ng-disabled='$ctrl.currentPage == 1'>Previous</md-button>
+        <md-button ng-click='$ctrl.next();' class='md-button md-accent'>Next</md-button>
+
+        <md-button ng-click='$ctrl.refresh();' class='md-accent'>Refresh</md-button>
+        <md-input-container class="md-icon-float md-block">
+            <input ng-model="$ctrl.findAllParams.pagination.offset" placeholder="Offset"> </input>
+        </md-input-container>
+        <md-input-container class="md-icon-float md-block">
+            <input ng-model="$ctrl.findAllParams.pagination.limit" placeholder="limit"> </input>
+        </md-input-container>
+    </md-whiteframe>
+
+</md-content>

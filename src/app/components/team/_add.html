@@ -1,0 +1,31 @@
+<md-bottom-sheet>
+    <md-content layout-xs="column" layout="column" layout-padding layout-align='center center'>
+
+        <!--<md-whiteframe class="md-whiteframe-1dp" flex-xs flex-gt-xs="100" layout-padding>-->
+
+            <div layout="row" layout-align="center">
+                <h4 class="md-display-2">Type the informations for the new Team</h4>
+            </div>
+            <form layout="row" name="$ctrl.formNewTeam" ng-submit="$ctrl.submit()">
+                <md-input-container class="md-icon-float md-block">
+                    <!-- Use floating label instead of placeholder -->
+                    <md-icon class="name">flag</md-icon>
+                    <input class='big' md-autofocus="true" autofocus ng-model="$ctrl.team.name" type="text" placeholder="Team Name" required>
+                </md-input-container>
+
+
+
+                <md-content layout='column' layout-align='center center'>
+                    <md-button type="submit" class="md-primary md-raised" ng-disabled="$ctrl.formNewTeam.$invalid">Save</md-button>
+                </md-content>
+
+                <!--<div layout-align="center center" layout="row" layout-padding>
+                    <p class='center' layout-align="center center" layout="row">
+                        Return to &nbsp;<span><a  ui-sref="team.list">Team page</a>!</span>
+                    </p>
+                </div>-->
+            </form>
+        <!--</md-whiteframe>-->
+
+    </md-content>
+</md-bottom-sheet>

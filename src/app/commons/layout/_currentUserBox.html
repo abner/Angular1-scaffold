@@ -1,0 +1,36 @@
+<md-menu md-position-mode="target-right target" md-offset="44,0" show-if-logged>
+    <md-button aria-label="Current User" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+        <md-tooltip md-direction="down">
+            User menu
+        </md-tooltip>
+        <md-icon md-menu-origin>person</md-icon>
+    </md-button>
+    <md-menu-content width="4">
+
+        <md-menu-item ui-sref="account-show">
+            <md-button>
+                <div layout='row' flex>
+                    <p flex>Logged as <b>{{$ctrl.user.username}}</b></p>
+                    <md-icon md-menu-align-target style="margin: auto 3px auto 0;">account_circle</md-icon>
+                </div>
+            </md-button>
+        </md-menu-item>
+        <md-divider></md-divider>
+        <md-menu-item>
+            <md-button ng-click="$ctrl.goToSettings()">
+                <div layout="row" flex>
+                    <p flex>Settings</p>
+                    <md-icon md-menu-align-target style="margin: auto 3px auto 0;">build</md-icon>
+                </div>
+            </md-button>
+        </md-menu-item>
+        <md-menu-item ui-sref="logout">
+            <md-button>
+                <div layout="row" flex>
+                    <p flex>Logout</p>
+                    <md-icon md-menu-align-target style="margin: auto 3px auto 0;">exit_to_app</md-icon>
+                </div>
+            </md-button>
+        </md-menu-item>
+    </md-menu-content>
+</md-menu>

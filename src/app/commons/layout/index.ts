@@ -1,8 +1,8 @@
-import { MainLeftSidebarComponent } from './leftSidebar.component';
-import { MainToolbarComponent } from './mainToolbar.component';
+import { MainLeftSidebarComponent } from './left-sidebar.component';
+import { MainToolbarComponent } from './main-toolbar.component';
 
-export { MainLeftSidebarComponent } from './leftSidebar.component';
-export { MainToolbarComponent } from './mainToolbar.component';
+export { MainLeftSidebarComponent } from './left-sidebar.component';
+export { MainToolbarComponent } from './main-toolbar.component';
 
 
 export const LAYOUT_COMPONENTS = [

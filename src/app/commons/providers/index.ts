@@ -1,6 +1,6 @@
-import { localStorageProvide } from './localStorage.provider';
+import { localStorageProvide } from './local-storage.provider';
 import { materialThemeProvide } from './material-theme.provider';
-import { httpProviderConfig } from './httpInterceptor.provider';
+import { httpProviderConfig } from './http-interceptor.provider';
 
 export const providers = [
     localStorageProvide,

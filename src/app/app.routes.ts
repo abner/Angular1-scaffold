@@ -8,7 +8,10 @@ export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig> {
     'account-show': {
         name: 'account-show',
         url: '/account/show',
-        template: '<account-show-form></account-show-form>'
+        template: '<account-show-form></account-show-form>',
+        data: {
+            loginRequired: true
+        }
     },
     'login': {
         url: '/login',
@@ -20,7 +23,10 @@ export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig> {
     'logout': {
         url: '/logout',
         name: 'logout',
-        template: '<logout-comp-not-used></logout-comp-not-used>'
+        template: '<logout-comp-not-used></logout-comp-not-used>',
+        data: {
+            loginRequired: true
+        }
     },
     'main': {
         name: 'main',
@@ -34,22 +40,34 @@ export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig> {
     'main.index': <any> {
         name: 'main.index',
         url: '/',
-        template: '<my-project-box></my-project-box>'
+        template: '<my-project-box></my-project-box>',
+        data: {
+            loginRequired: true
+        }
     },
     'main.teams': {
         name: 'main.teams',
         url: '/main/teams',
-        template: '<my-team-box></my-team-box>'
+        template: '<my-team-box></my-team-box>',
+        data: {
+            loginRequired: true
+        }
     },
     'main.tasks': {
         name: 'main.tasks',
         url: '/main/tasks',
-        template: '<my-task-box></my-task-box>'
+        template: '<my-task-box></my-task-box>',
+        data: {
+            loginRequired: true
+        }
     },
     'main.projects': {
         name: 'main.projects',
         url: '/main/projects',
-        template: '<my-project-box></my-project-box>'
+        template: '<my-project-box></my-project-box>',
+        data: {
+            loginRequired: true
+        }
     },
     'signup': {
         name: 'signup',
@@ -63,21 +81,42 @@ export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig> {
         name: 'team',
         url: '/team',
         abstract: true,
-        template: `<div ui-view=""></div>`
+        template: `<div ui-view=""></div>`,
+        data: {
+            loginRequired: true
+        }
     },
     'team.list': {
         url: '',
-        template: ' <team-list></team-list>'
+        template: ' <team-list></team-list>',
+        data: {
+            loginRequired: true
+        }
     },
     'team.edit': {
         name: 'team.edit',
         url: '/:id/edit',
-        template: '<team-edit></team-edit>'
+        template: '<team-edit></team-edit>',
+        data: {
+            loginRequired: true
+        }
     },
     'team.add': {
         name: 'team.add',
         url: '/new',
-        template: '<team-add-form></team-add-form>'
+        template: '<team-add-form></team-add-form>',
+        data: {
+            loginRequired: true
+        }
+    },
+    'admin:': {
+        name: 'admin',
+        url: '/admin',
+        template: 'ADMIN PAGE',
+        data: {
+            loginRequired: true,
+            allowedRoles: [ 'Admin']
+        }
     }
 };
 

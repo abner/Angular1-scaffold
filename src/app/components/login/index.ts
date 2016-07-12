@@ -1,7 +1,7 @@
-import { LoginFormComponent } from './loginForm.component';
+import { LoginFormComponent } from './login-form.component';
 import { LogoutComponent } from './logout.component';
 
-export { LoginFormComponent } from './loginForm.component';
+export { LoginFormComponent } from './login-form.component';
 export { LogoutComponent } from './logout.component';
 
 export const LOGIN_COMPONENTS = [

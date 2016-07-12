@@ -1,16 +1,16 @@
 import { TeamShowComponent } from './show.component';
 export { TeamShowComponent } from './show.component';
 
-import { AddTeamFormComponent } from './addTeamForm.component';
-export { AddTeamFormComponent } from './addTeamForm.component';
+import { AddTeamFormComponent } from './add-team-form.component';
+export { AddTeamFormComponent } from './add-team-form.component';
 
 
-import { EditTeamFormComponent } from './editTeamForm.component';
-export { EditTeamFormComponent } from './editTeamForm.component';
+import { EditTeamFormComponent } from './edit-team-form.component';
+export { EditTeamFormComponent } from './edit-team-form.component';
 
 
-import { TeamListComponent } from './teamList.component';
-export { TeamListComponent } from './teamList.component';
+import { TeamListComponent } from './team-list.component';
+export { TeamListComponent } from './team-list.component';
 
 export const TEAM_COMPONENTS = [
     TeamShowComponent,

@@ -1,12 +1,10 @@
-export { MyTeamsBoxComponent } from './boxes/myTeamsBoxComponent';
-export { MyTasksBoxComponent } from './boxes/myTasksBoxComponent';
-export { MyProjectsBoxComponent } from './boxes/myProjectsBoxComponent';
+export { MyTeamsBoxComponent } from './boxes/my-teams-box.component';
+export { MyTasksBoxComponent } from './boxes/my-tasks-box.component';
+export { MyProjectsBoxComponent } from './boxes/my-projects-box.component';
 
-
-
-import { MyTeamsBoxComponent } from './boxes/myTeamsBoxComponent';
-import { MyTasksBoxComponent } from './boxes/myTasksBoxComponent';
-import { MyProjectsBoxComponent } from './boxes/myProjectsBoxComponent';
+import { MyTeamsBoxComponent } from './boxes/my-teams-box.component';
+import { MyTasksBoxComponent } from './boxes/my-tasks-box.component';
+import { MyProjectsBoxComponent } from './boxes/my-projects-box.component';
 
 export const DASHBOARD_BOXES_COMPONENTS = [
     MyTeamsBoxComponent,

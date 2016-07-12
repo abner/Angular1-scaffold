@@ -55,14 +55,12 @@ export class AppNavigationService {
         fromParams: any,
         options: ng.ui.IStateOptions
     ) {
-
-        debugger;
         if (toState.data && toState.data.allowedRoles && toState.data.loginRequired) {
 
             let rolesFound: string[];
             let userRoles = this.sessionService.currentUser.roles;
 
-            // if user does not have roles defiend
+            // if user does not have roles defined
             if (!userRoles && toState.data.allowedRoles.length > 0) {
                 event.preventDefault();
                 this.lastStateAccessed = { state: fromState, params: fromParams };
@@ -96,16 +94,11 @@ export class AppNavigationService {
                     this.userNotificationService
                         .showNotification('User not authorized!')
                         .subscribe();
-                    // this.$timeout(
-                    //                        () =>
                     if (this.lastStateAccessed.state.abstract === true) {
                         this.$state.go('main.index');
                     } else {
                         this.$state.transitionTo(this.lastStateAccessed.state, this.lastStateAccessed.params);
                     }
-
-
-                    //                      2000);
                     break;
             }
         });

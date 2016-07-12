@@ -12,12 +12,14 @@ import { providers as appProviders} from './app/commons/providers';
 // import { APP_ROOT_MODULE } from './app/module';
 
 import { AppRoutesConfig } from './app/app.routes';
+import { appStartup } from './app/app.startup';
 
 if (ENV === 'production') {
   enableProdMode();
 }
 
 const dependencies = [
+  'angular-loading-bar',
   ngMaterial,
   ngAnimate,
   uiRouter,
@@ -26,6 +28,7 @@ const dependencies = [
   // uiMask,
   ...appProviders,
   AppRoutesConfig,
+  appStartup,
   AsyncPipe,
   { provide: 'APP_PREFIX', useValue: 'myapp'}
 

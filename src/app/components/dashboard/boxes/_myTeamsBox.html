@@ -1,8 +1,19 @@
-<ul>
-    <li ng-repeat="team in $ctrl.teams | async:this">
-        <span ng-bind="team.name"></span>
-    </li>
-</ul>
-<div layout="row" layout-align='end center'>
-    <a class="md-button md-raised md-accent md-nav-item" ui-sref="team.list">See more...</a>
-</div>
+<table>
+    <thead>
+        <th align='left'>Name</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="team in $ctrl.teams | async:this">
+            <td>
+                <span ng-bind="team.name"></span>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td align='center'>
+                <a class="md-button md-raised md-accent" ui-sref="team.list">See more...</a>
+            </td>
+        </tr>
+    </tfoot>
+</table>

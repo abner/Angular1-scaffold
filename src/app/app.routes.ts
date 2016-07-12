@@ -4,7 +4,7 @@ export interface IStatesConfig {
     [key: string]: ng.ui.IState;
 }
 
-export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig>{
+export const ROUTES_DEFINITIONS: IStatesConfig = <IStatesConfig> {
     'account-show': {
         name: 'account-show',
         url: '/account/show',

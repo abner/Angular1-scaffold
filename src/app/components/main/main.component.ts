@@ -17,14 +17,9 @@ export class MainComponent implements OnInit {
     }
 
     ngOnInit() {
-        // if (this.$state.current.name === 'main.index') {
-        //     this.$state.go('main.projects');
-        // }
         this.currentNavItem = this.$state.current.name.replace('main.', '');
 
         this.currentNavItem = (this.currentNavItem === 'index' ? 'projects' : this.currentNavItem);
-
-        console.log("CURRENT NAV ITEM", this.currentNavItem);
     }
 
     goto(state: string) {

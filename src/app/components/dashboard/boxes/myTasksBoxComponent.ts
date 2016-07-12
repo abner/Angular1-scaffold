@@ -16,8 +16,12 @@ import { BackendService } from '../../../commons/services/backend';
 export class MyTasksBoxComponent {
     // teams: Observable<Task[]> = null;
     constructor(
+        @Inject('$http') private $http: ng.IHttpService
         // @Inject(TASK_BACKEND_SERVICE) private taskBackendService: BackendService<Task>
     ) {
+        this.$http.get('https://restcountries.eu/rest/v1/all')
+        .then((response) => {
+        });
         // this.tasks = taskBackendService.getAll();
 
         // taskBackendService.onChanges().subscribe(() => {

@@ -11,14 +11,24 @@ import { TEAM_BACKEND_SERVICE, TEAM_BACKEND_SERVICE_PROVIDE } from '../../team';
         TEAM_BACKEND_SERVICE_PROVIDE
     ],
     styles: require('./myTeamBox.scss'),
-    changeDetection: ChangeDetectionStrategy.OnPush
+    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MyTeamsBoxComponent {
     teams: Observable<Team[]> = null;
+    teamsLoading: boolean = true;
     constructor(
         @Inject(TEAM_BACKEND_SERVICE) private teamBackendService: BackendService<Team>
     ) {
+        this.teamsLoading = true;
+
+
         this.teams = teamBackendService.getAll();
+
+        this.teams.subscribe(() => {
+
+            this.teamsLoading = false;
+        });
+
 
         teamBackendService.onChanges().subscribe(() => {
             this.teams = teamBackendService.getAll();

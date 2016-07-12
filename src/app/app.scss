@@ -1,8 +1,13 @@
 
+@import '~/ngprogress/ngProgress.css';
+
 @import "~angular-material/angular-material.scss";
 
 @import "~material-design-icons/iconfont/material-icons.css";
 
+body {
+    zoom: 1;
+}
 .searchButton {
     display: inline-block;
     cursor: pointer;
@@ -71,5 +76,5 @@ md-content {
 .fadeOut {
   animation-name: fadeOut;
 }
-.main-container.ng-enter           { animation: scaleUp 0.4s both ease-in; z-index: 8888; }
-.main-container.ng-leave           { animation: fadeOut 0.2s both ease-in; z-index: 9999;}
+#mainUiView.ng-enter           { animation: scaleUp 0.4s both ease-in; z-index: 8888; }
+#mainUiView.ng-leave           { animation: fadeOut 0.2s both ease-in; z-index: 9999;}

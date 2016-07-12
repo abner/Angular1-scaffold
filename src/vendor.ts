@@ -3,6 +3,7 @@ import 'angular-ui-router';
 import 'angular-local-storage';
 import 'angular-animate';
 import 'angular-material';
+import 'angular-loading-bar';
 import 'ng-metadata/platform-browser-dynamic';
 import 'ng-metadata/core';
 import 'ng-metadata/common';

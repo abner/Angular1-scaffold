@@ -20,6 +20,7 @@ export const APP_TITLE_TOKEN = new OpaqueToken('APP_TITLE');
 export const APP_PREFIX_TOKEN = new OpaqueToken('APP_PREFIX');
 export const APP_NAME_TOKEN = new OpaqueToken('APP_NAME');
 
+
 @Component({
   selector: 'my-app',
   styles: [require('./app.scss')],
@@ -44,8 +45,11 @@ export const APP_NAME_TOKEN = new OpaqueToken('APP_NAME');
 export class AppComponent implements OnInit {
 
   searchEnabled: boolean = false;
+  loading: boolean = false;
 
-  constructor( @Inject('$log') private _$log: ng.ILogService, @Inject(APP_NAME_TOKEN) appName: String) {
+  constructor(
+    @Inject('$log') private _$log: ng.ILogService,
+    @Inject(APP_NAME_TOKEN) appName: String) {
     _$log.info('APP NAME -----> ', appName);
   }
 

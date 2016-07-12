@@ -301,7 +301,10 @@ module.exports = {
   watch: true,
   module: {
     preLoaders: webpackPreLoaders,
-    loaders: webpackConfigLoaders
+    loaders: webpackConfigLoaders,
+    noParse:  [
+      /[\/\\]node_modules[\/\\]ngProgress[\/\\]ngProgress\.js$/
+    ]
   },
   devServer: {
     // This is required for webpack-dev-server. The path should

@@ -14,9 +14,9 @@ export class CorsHttpInterceptorImpl extends HttpInterceptor implements ng.IHttp
     }
 
     request(config: ng.IRequestConfig): ng.IRequestConfig | ng.IPromise<ng.IRequestConfig> {
-        config.headers['Access-Control-Allow-Origin'] = '*';
-        config.headers['Access-Control-Allow-Methods'] = 'OPTIONS,GET,POST,PUT,DELETE';
-        config.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-Requested-With';
+        // config.headers['Access-Control-Allow-Origin'] = '*';
+        // config.headers['Access-Control-Allow-Methods'] = 'OPTIONS,GET,POST,PUT,DELETE';
+        // config.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-Requested-With';
         this.$log.info('Cors Interceptor called', config);
         return this.$q.when(config);
     }

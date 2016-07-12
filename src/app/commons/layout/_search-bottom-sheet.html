@@ -1,0 +1,11 @@
+<md-bottom-sheet>
+    <form ng-submit="$ctrl.search()">
+        <md-input-container class="md-icon-float md-block md-icon-right">
+            <label for="search">Search</label>
+            <md-icon class="md-24 searchButton" aria-label="Search" ng-click="$ctrl.search()">
+                search
+            </md-icon>
+            <input md-autofocus id="search" md-input name="search" ng-model="$ctrl.searchTerm">
+        </md-input-container>
+    </form>
+</md-bottom-sheet>

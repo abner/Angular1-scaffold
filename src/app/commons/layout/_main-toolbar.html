@@ -1,0 +1,21 @@
+<md-toolbar layout="row" class="md-primary" flex id="mainToolbar">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button  md-button md-ink-ripple" aria-label="Open Left" ng-click="$ctrl.openLeftSidebar()">
+            <md-icon class="md-24" aria-label="menu">
+                apps
+            </md-icon>
+        </md-button>
+        <h2 class="md-flex">{{$ctrl.title}}</h2>
+        <span flex></span>
+        <md-button show-if-logged class="md-icon-button md-button" ng-click="$ctrl.enableSearch()">
+            <md-tooltip md-direction="down">
+                Search
+            </md-tooltip>
+            <md-icon class="md-24" aria-label="Buscar">
+                search
+            </md-icon>
+        </md-button>
+        <current-user></current-user>
+    </div>
+    <md-progress-linear  md-mode="query" ng-disabled="!$ctrl.loading"></md-progress-linear>
+</md-toolbar>

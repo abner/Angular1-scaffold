@@ -1,0 +1,33 @@
+my-team-box {
+    width: 100%;
+}
+
+table {
+    border: 0px solid lightgray;
+    width: 100%;
+    padding: 2px;
+    
+}
+
+table tr > td, th {
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+    border-spacing: 0px;
+    color: #353535
+    
+}
+
+th {
+    background-color: #efefef;
+    color: black;
+    border-bottom: 0px;
+}
+
+tfoot > td {
+    padding: 0px;
+    margin: 0px;
+}
+
+tfoot > tr > td {
+    border-bottom: 0px;
+}

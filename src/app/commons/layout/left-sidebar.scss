@@ -1,16 +1,31 @@
+$branding-back-color: #373C47;
+$sidenav-back-color: #2D323E;
 md-sidenav > md-toolbar {
-    background-color: #111829 !important;
+    background-color: $branding-back-color !important;
     color: white !important;
 }
 
 md-sidenav {
-    background-color: #151B3C;
+    background-color: $sidenav-back-color;
+    opacity: 0.98;
 }
 
 md-sidenav > md-content {
-    background-color: #151B3C;
+    background-color: $sidenav-back-color;
 }
 
-.branding {
+$branding-color: rgba(250, 250, 250, 0.9);
+
+md-sidenav .branding {
     height: auto !important;
+    color: $branding-color;
+    border: 0px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 50px;
+}
+
+md-sidenav .branding md-icon {
+    color: $branding-color;
 }

@@ -1,3 +1,21 @@
+#mainToolbar {
+    background-color: white;
+    color: #323232;
+}
+
+.md-toolbar-tools md-icon {
+    color: #989898 !important;
+}
+
+.md-toolbar-tools md-icon.icon-app {
+    color: #039BE5 !important;
+    background-color: #E1F0FF;
+    margin-right:10px;
+    padding:4px;
+    height: 30px;
+    width: 34px;
+}
+
 md-toolbar {
     position: fixed !important;
 }
@@ -9,6 +27,25 @@ md-progress-linear {
     z-index: 9999;
     left: 0px;
 }
+
+.sidebar-toggler {
+    padding: 0px;
+    margin-right: 15px;
+    border-right: 1px rgba(0,0,0,.12) solid;
+    width: 64px;
+    height: 100%;
+}
+
+.branding {
+    padding: 0px;
+    padding-right: 20px;
+    margin-right: 15px;
+    border-right: 1px rgba(0,0,0,.12) solid;
+    width: 224px;
+    height: 100%;
+    
+}
+
 
 
 @media (max-width: 959px) and (min-width: 0) and (orientation: landscape) {

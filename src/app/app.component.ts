@@ -16,7 +16,7 @@ import { AppNavigationService, LOGIN_ROUTE_NAME, NOTFOUND_ROUTE_NAME  } from './
 
 import { UserNotificationService } from './commons/notification/user-notification.service';
 
-export const APP_TITLE = 'My App - Abner ®';
+export const APP_TITLE = 'TEAM SHARE';
 export const APP_PREFIX = 'myapp';
 export const APP_NAME = 'MY APP';
 

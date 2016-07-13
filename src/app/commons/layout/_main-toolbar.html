@@ -1,11 +1,21 @@
-<md-toolbar layout="row" class="md-primary" flex id="mainToolbar">
+<md-toolbar layout="row" class="md-primary md-whiteframe-1dp" flex id="mainToolbar">
+    <!--<div layout="row" layout-align="start center">
+        
+    </div>-->
     <div class="md-toolbar-tools">
-        <md-button class="md-icon-button  md-button md-ink-ripple" aria-label="Open Left" ng-click="$ctrl.openLeftSidebar()">
-            <md-icon class="md-24" aria-label="menu">
-                apps
+        <div class="branding" layout="row" layout-align="left center">
+            <md-icon class="md-24 icon-app" aria-label="menu">
+                bubble_chart <!--school -->
             </md-icon>
-        </md-button>
-        <h2 class="md-flex">{{$ctrl.title}}</h2>
+            <span class="md-flex">{{$ctrl.title}}</span>
+        </div>
+        <div class="sidebar-toggler" layout="row" layout-align="left center">
+            <md-button class="md-icon-button md-accent  md-button md-ink-ripple" aria-label="Open Left" ng-click="$ctrl.openLeftSidebar()">
+                <md-icon class="md-24 " aria-label="menu">
+                    menu
+                </md-icon>
+            </md-button>
+        </div>
         <span flex></span>
         <md-button show-if-logged class="md-icon-button md-button" ng-click="$ctrl.enableSearch()">
             <md-tooltip md-direction="down">
@@ -17,5 +27,5 @@
         </md-button>
         <current-user></current-user>
     </div>
-    <md-progress-linear  md-mode="query" ng-disabled="!$ctrl.loading"></md-progress-linear>
+    <md-progress-linear md-mode="query" ng-disabled="!$ctrl.loading"></md-progress-linear>
 </md-toolbar>

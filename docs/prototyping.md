@@ -9,6 +9,9 @@ is more mature than the emergent Angular 2.
 Next step will be use ngx-store to experiment the immutabillity concepts here too.
  
 
+Inspired by http://fuse-angular-material.withinpixels.com/dashboard-project
+
+
 ## Router
 
   - Using angular ui-router -> https://github.com/angular-ui/ui-router/wiki/Nested-States-and-Nested-Views

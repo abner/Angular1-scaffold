@@ -8,7 +8,10 @@ import { ShowIfLoggedDirective } from '../auth';
     selector: 'main-toolbar',
     directives: [CurrentUserBoxComponent, ShowIfLoggedDirective],
     styles: require('./main-toolbar.scss'),
-    template: require('./_main-toolbar.html')
+    template: require('./_main-toolbar.html'),
+    legacy: {
+        replace: true
+    }
 })
 export class MainToolbarComponent {
 

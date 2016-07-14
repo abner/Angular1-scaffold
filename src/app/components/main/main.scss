@@ -1,0 +1,37 @@
+#main-header {
+    height: 155px;
+    min-height: 15px;
+    max-height: 155px;
+    padding:  24px 24px 0px 24px;
+    
+    //background-image: url("../../../assets/images/grey_wash_wall.png");
+    background-color: #1A77A5 !important;
+    color: rgb(250,250,250);
+}
+
+.row-projects {
+    height: 38px;
+}
+.selected-project {
+    background: rgba(250,250,250,.09);
+    color: rgb(230,230,230);
+    padding: 8px 16px;
+    height: 20px;
+    font-size: 16px;
+}
+
+#main-header md-menu {
+    margin-top: -14px;
+    height: 24px;
+    color: rgb(230,230,230);
+}
+
+#main-header md-menu md-icon {
+    color: white !important;
+}
+
+#main-header .project-selector {
+    margin-left: 1px;
+    border-radius: 0;
+    background: rgba(250,250,250,.09);
+}

@@ -32,19 +32,19 @@ md-whiteframe, md-whiteframe > form > md-content {
 
 .main-container {
     background-color: rgb(245,245,245);
-    padding-top: 74px;
+    padding-top: 65px;
 }
 
 
 @media (max-width: 959px) and (min-width: 0) and (orientation: landscape) {
     .main-container {
-        padding-top: 44px;
+        padding-top: 33px;
     }
 }
 
 @media (max-width: 959px) and (min-width: 0) and (orientation: portrait) {
     .main-container {
-        padding-top: 74px;
+        padding-top: 33px;
     }
 }
 
@@ -102,5 +102,10 @@ md-whiteframe, md-whiteframe > form > md-content {
 .fadeOut {
   animation-name: fadeOut;
 }
-#mainUiView.ng-enter           { animation: scaleUp 0.4s both ease-in; z-index: 8888; }
+#mainUiView.ng-enter           { animation: slideUp 0.4s both ease-in; z-index: 8888; }
 #mainUiView.ng-leave           { animation: fadeOut 0.2s both ease-in; z-index: 9999;}
+
+md-tabs-wrapper {
+    background: #FFF !important;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12) !important;
+}

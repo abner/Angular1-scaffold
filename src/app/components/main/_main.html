@@ -1,15 +1,36 @@
-<md-content class="md-padding">
-    <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links">
-        <md-nav-item md-nav-click="$ctrl.goto('main.projects')" name="projects">Meus Projetos</md-nav-item>
-        <md-nav-item md-nav-click="$ctrl.goto('main.teams')" name="teams">Minhas Equipes</md-nav-item>
-        <md-nav-item md-nav-click="$ctrl.goto('main.tasks')" name="tasks">Pendências</md-nav-item>
-        <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
-      <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
-      <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
-      -->
-    </md-nav-bar>
-    <md-content style='overflow:hidden'>
-        <!--<span>{{$ctrl.currentNavItem}}</span>-->
-        <div class='main-content animate-slide-left' ui-view layout-padding layout-fill layout="row"></div>
-    </md-content>
+<div id="main-header" class="header md-accent-bg" layout="column" layout-align="space-between">
+    <div layout="row" layout-align="space-between">
+        <div><span class="md-display-1 font-weight-300">Welcome back, {{$ctrl.currentUser.login}}</span></div>
+        <div class="toolbar"></div>
+    </div>
+    <div layout="row" class="row-projects">
+        <div class="selected-project">Creapond</div>
+        <md-menu id="projects-menu" md-offset="0 48">
+            <md-button class="project-selector" aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon aria-hidden="true">more_horiz</md-icon>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item ng-repeat="item in [1, 2, 3]">
+                    <md-button ng-click="ctrl.announceClick($index)"> <span md-menu-align-target>Option</span> {{item}} </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</div>
+<md-content class="">
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="My Projects" md-on-select="$ctrl.goto('main.projects')">
+            <md-content class="md-padding" ui-view>
+            </md-content>
+        </md-tab>
+        <md-tab label="My Teams" md-on-select="$ctrl.goto('main.teams')">
+            <md-content class="md-padding" ui-view>
+            </md-content>
+        </md-tab>
+        <md-tab label="My Tasks" md-on-select="$ctrl.goto('main.tasks')">
+            <md-content class="md-padding" ui-view>
+
+            </md-content>
+        </md-tab>
+    </md-tabs>
 </md-content>

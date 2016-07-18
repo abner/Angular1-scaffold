@@ -14,6 +14,7 @@ html {
 body {
     zoom: 1;
     background-color: rgb(245,245,245) !important;
+    overflow-Y:hidden;
 }
 .searchButton {
     display: inline-block;
@@ -32,19 +33,19 @@ md-whiteframe, md-whiteframe > form > md-content {
 
 .main-container {
     background-color: rgb(245,245,245);
-    padding-top: 65px;
+    margin-top: 65px;
 }
 
 
 @media (max-width: 959px) and (min-width: 0) and (orientation: landscape) {
     .main-container {
-        padding-top: 33px;
+        margin-top: 33px;
     }
 }
 
 @media (max-width: 959px) and (min-width: 0) and (orientation: portrait) {
     .main-container {
-        padding-top: 33px;
+        margin-top: 33px;
     }
 }
 

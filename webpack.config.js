@@ -64,7 +64,7 @@ const webpackConfigEntryPoints = {
  */
 // const webpackDevtool = 'source-map';
 // const webpackDevtool =  'cheap-module-eval-source-map';
-const webpackDevtool =  'cheap-module-source-map';
+const webpackDevtool = 'cheap-module-source-map';
 const webpackPreLoaders = [
 
   /*
@@ -152,6 +152,18 @@ const webpackConfigLoaders = [
 const webpackConfigPlugins = [
 
   /**
+  * Plugin: CommonsChunkPlugin
+  * Description: Shares common code between the pages.
+  * It identifies common modules and put them into a commons chunk.
+  *
+  * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
+  * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
+  */
+  new webpack.optimize.CommonsChunkPlugin({
+    name: ['vendor', 'polyfills']
+  }),
+
+  /**
    * Plugin: DefinePlugin
    * Description: Define free variables.
    * Useful for having development builds with debug logging or adding global constants.
@@ -179,17 +191,7 @@ const webpackConfigPlugins = [
    */
   new webpack.optimize.OccurenceOrderPlugin(true),
 
-  /**
-   * Plugin: CommonsChunkPlugin
-   * Description: Shares common code between the pages.
-   * It identifies common modules and put them into a commons chunk.
-   *
-   * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
-   * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
-   */
-  new webpack.optimize.CommonsChunkPlugin({
-    name: ['vendor', 'polyfills']
-  }),
+
 
   /**
    * Plugin: CopyWebpackPlugin
@@ -302,7 +304,7 @@ module.exports = {
   module: {
     preLoaders: webpackPreLoaders,
     loaders: webpackConfigLoaders,
-    noParse:  [
+    noParse: [
       /[\/\\]node_modules[\/\\]ngProgress[\/\\]ngProgress\.js$/
     ]
   },

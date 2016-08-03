@@ -10,6 +10,7 @@ const webpackConfig = require( './webpack.config' );
  */
 const webpackDevtool = 'inline-source-map';
 
+// TODO adicionar estes postLoaders apenas se for teste com cobertura
 const webpackPostLoaders = [
 
   /**
@@ -38,7 +39,7 @@ const webpackNode = {
    *
    * See: https://webpack.github.io/docs/configuration.html#node
    */
-  process: false
+  process: true
 };
 
 Object.assign( webpackConfig, {
@@ -46,7 +47,7 @@ Object.assign( webpackConfig, {
   output: {},
   devtool: webpackDevtool,
   watch: false,
-  plugins: [],
+  // plugins: [],
   ts: {
       compilerOptions: {
           sourceMap: false,
@@ -59,5 +60,8 @@ Object.assign( webpackConfig, {
 Object.assign( webpackConfig.module, {
   postLoaders: webpackPostLoaders
 } );
+
+// remove CommonsChunkPlugin
+webpackConfig.plugins.splice(0,1);
 
 module.exports = webpackConfig;

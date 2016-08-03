@@ -12,7 +12,7 @@ let provideBackendService: Object = {
     useClass: TeamBackendRestService
 };
 
-if (ENV === 'prototyping') {
+if (ENV && ENV === 'prototyping') {
     provideBackendService = {
         provide: TEAM_BACKEND_SERVICE,
         useClass: TeamBackendMockService
